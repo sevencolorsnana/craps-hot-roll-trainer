@@ -53,7 +53,7 @@ button{font:inherit}
 <body>
 <div class="app">
   <div class="topbar">
-    <div><div class="title">CRAPS HOT ROLL TRAINER</div><div class="subtitle">ROLLだけ押す → 戦略は自動実行 / iPhone互換版</div></div>
+    <div><div class="title">CRAPS HOT ROLL TRAINER</div><div class="subtitle">ROLLだけ押す → 戦略は自動実行 / iPhone互換版 v9</div></div>
     <button type="button" class="help" id="helpBtn" onclick="showHelp(); return false;">?</button>
   </div>
 
@@ -181,7 +181,18 @@ init();
 </script>
 <script>
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js'));
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (refreshing) return;
+    refreshing = true;
+    window.location.reload();
+  });
+  window.addEventListener('load', async () => {
+    try {
+      const registration = await navigator.serviceWorker.register('./service-worker.js?v=9', {updateViaCache:'none'});
+      await registration.update();
+    } catch (_) {}
+  });
 }
 </script>
 </body></html>
