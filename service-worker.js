@@ -1,4 +1,4 @@
-const CACHE = 'craps-hot-roll-v6';
+const CACHE = 'craps-hot-roll-v8';
 const ASSETS = [
   './',
   './index.html',
