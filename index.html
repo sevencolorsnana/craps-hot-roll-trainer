@@ -53,7 +53,7 @@ button{font:inherit}
 <body>
 <div class="app">
   <div class="topbar">
-    <div><div class="title">CRAPS HOT ROLL TRAINER</div><div class="subtitle">ROLLだけ押す → 戦略は自動実行 / iPhone互換版 v10</div></div>
+    <div><div class="title">CRAPS HOT ROLL TRAINER</div><div class="subtitle">ROLLだけ押す → 戦略は自動実行 / iPhone互換版 v11</div></div>
     <button type="button" class="help" id="helpBtn" onclick="showHelp(); return false;">?</button>
   </div>
 
@@ -101,9 +101,9 @@ const FACE=['','⚀','⚁','⚂','⚃','⚄','⚅'];
 let state, rolling=false, flashTimer;
 
 function freshState(){return {bankroll:START,shooterStart:START,shooterRolls:0,point:null,pass:null,comeBar:null,comes:[],places:{6:0,8:0},retiredPlaces:{6:false,8:false},stage:'NORMAL',nextComeBase:1000,_placeHit:false,last:null,history:[]}}
-function init(){try{state=JSON.parse(localStorage.getItem(STATE_KEY))||freshState()}catch(_){state=freshState()}if(!Array.isArray(state.history))state.history=[];render();}
+function init(){try{state=JSON.parse(localStorage.getItem(STATE_KEY))||freshState()}catch(_){state=freshState()}if(!Array.isArray(state.history))state.history=[];if(!state.point&&!state.pass)beginPass([]);render();}
 function saveState(){try{localStorage.setItem(STATE_KEY,JSON.stringify(state))}catch(_){}}
-function resetAll(){localStorage.removeItem(STATE_KEY);state=freshState();render();}
+function resetAll(){localStorage.removeItem(STATE_KEY);state=freshState();beginPass([]);render();}
 function debit(x){state.bankroll-=x} function credit(x){state.bankroll+=x}
 function tablePrincipal(){let x=0;if(state.pass)x+=state.pass.base+(state.pass.odds||0);if(state.comeBar)x+=state.comeBar.base;for(const c of state.comes)x+=c.base+(c.odds||0);x+=(state.places[6]||0)+(state.places[8]||0);return x}
 function equity(){return state.bankroll+tablePrincipal()}
@@ -155,7 +155,7 @@ function executeRoll(d1,d2){const events=[];let wins=[], losses=[];beginPass(eve
       if(state.point===sum&&state.pass){const p=state.pass,profit=p.base+payoutOdds(p.number,p.odds);credit(p.base+p.odds+profit);wins.push({name:`POINT ${sum} MADE`,profit,detail:`Pass +${p.base.toLocaleString()} / Odds profit +${Math.round(payoutOdds(p.number,p.odds)).toLocaleString()}`});state.point=null;state.pass=null}
     }
   }
-  setStage();if(state.point){topUpOdds(events);place68(events);maybeLaunchCome(events)}
+  setStage();if(state.point){topUpOdds(events);place68(events);maybeLaunchCome(events)}else beginPass(events);
   state.history=[...(state.history||[]),{d1,d2,sum}].slice(-12);state.last={d1,d2,sum,wins,losses,events};render();
   const net=[...wins,...losses].reduce((a,x)=>a+x.profit,0);
   if(wins.length||losses.length){const mixed=wins.length&&losses.length;showFlash(net>=0?'win':'lose',mixed?'MIXED RESULT':(wins.length?wins:losses).map(x=>x.name).join(' + '),`純利益 ${fmt(net)} PHP`,[...wins,...losses].map(x=>x.detail).join(' / '))}
@@ -174,7 +174,7 @@ function render(){
   saveState();
 }
 
-function newShooter(){state.bankroll+=tablePrincipal();state.point=null;state.pass=null;state.comeBar=null;state.comes=[];state.places={6:0,8:0};state.retiredPlaces={6:false,8:false};state.shooterStart=state.bankroll;state.shooterRolls=0;state._placeHit=false;state.stage='NORMAL';state.nextComeBase=BASE;state.last=null;render();}
+function newShooter(){state.bankroll+=tablePrincipal();state.point=null;state.pass=null;state.comeBar=null;state.comes=[];state.places={6:0,8:0};state.retiredPlaces={6:false,8:false};state.shooterStart=state.bankroll;state.shooterRolls=0;state._placeHit=false;state.stage='NORMAL';state.nextComeBase=BASE;state.last=null;beginPass([]);render();}
 function showHelp(){document.getElementById('modal').classList.add('show');}
 function hideHelp(){document.getElementById('modal').classList.remove('show');}
 init();
@@ -189,7 +189,7 @@ if ('serviceWorker' in navigator) {
   });
   window.addEventListener('load', async () => {
     try {
-      const registration = await navigator.serviceWorker.register('./service-worker.js?v=10', {updateViaCache:'none'});
+      const registration = await navigator.serviceWorker.register('./service-worker.js?v=11', {updateViaCache:'none'});
       await registration.update();
     } catch (_) {}
   });
