@@ -30,7 +30,7 @@ button{font:inherit}
 .main{min-height:0;display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;gap:5px}
 .rollzone{display:grid;grid-template-columns:1fr 92px;gap:6px;align-items:stretch;min-height:76px}
 .dicebox{background:var(--panel);border:1px solid #274239;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:5px;padding:6px}
-.tableDice{position:absolute;z-index:3;top:38px;left:50%;transform:translateX(-50%);background:rgba(8,35,26,.78);border:1px solid rgba(255,255,255,.34);padding:10px 12px;box-shadow:0 7px 16px rgba(0,0,0,.32)}.die{width:56px;height:56px;border-radius:11px;background:#fff;color:#111;display:flex;align-items:center;justify-content:center;font-size:47px;line-height:1;box-shadow:0 5px 11px rgba(0,0,0,.42)}
+.tableDice{position:absolute;z-index:3;top:38px;left:50%;transform:translateX(-50%);background:linear-gradient(180deg,rgba(10,48,35,.92),rgba(5,25,19,.88));border:1px solid rgba(255,255,255,.32);padding:11px 13px;box-shadow:0 9px 20px rgba(0,0,0,.4),inset 0 1px rgba(255,255,255,.12)}.die{width:58px;height:58px;border-radius:13px;background:linear-gradient(145deg,#fffef5 0%,#eee8d8 70%,#d8d0bd 100%);display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);padding:8px;gap:3px;box-shadow:inset 2px 2px 3px rgba(255,255,255,.95),inset -3px -3px 5px rgba(95,79,53,.24),0 6px 10px rgba(0,0,0,.46);border:1px solid #c9bea6}.pip{width:10px;height:10px;border-radius:50%;align-self:center;justify-self:center;background:transparent}.pip.on{background:radial-gradient(circle at 35% 30%,#4a4a46 0 18%,#171714 46%,#050504 100%);box-shadow:inset 1px 1px 2px rgba(255,255,255,.22),0 1px 1px rgba(255,255,255,.55)}
 .dicebox.rolling .die:first-child{animation:shake .12s linear infinite}.dicebox.rolling .die:last-child{animation:shake2 .11s linear infinite}
 @keyframes shake{0%{transform:translate(-1px,1px) rotate(-7deg)}50%{transform:translate(2px,-2px) rotate(8deg)}100%{transform:translate(-1px,1px) rotate(-7deg)}}
 @keyframes shake2{0%{transform:translate(2px,-1px) rotate(8deg)}50%{transform:translate(-2px,2px) rotate(-8deg)}100%{transform:translate(2px,-1px) rotate(8deg)}}
@@ -43,17 +43,17 @@ button{font:inherit}
 .numbers{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;min-height:0}.num{border:1.5px solid var(--line);position:relative;text-align:center;min-width:0;overflow:hidden;display:grid;grid-template-rows:42px 1fr}.num.pointon{box-shadow:inset 0 0 0 2px var(--gold)}.numberHead{position:relative;padding:5px 1px 2px;border-bottom:1px solid rgba(255,255,255,.34)}.nval{font-family:Georgia,serif;font-weight:900;font-size:22px;line-height:1}.tag{font-size:6px;letter-spacing:.1em;opacity:.7}.betLanes{min-height:0;display:grid;grid-template-rows:1fr 1fr}.betLane{display:flex;align-items:center;justify-content:center;gap:2px;min-width:0;padding:1px}.betLane+.betLane{border-top:1px dashed rgba(255,255,255,.5)}.laneName{position:absolute;left:1px;font-size:5px;font-weight:900;opacity:.8;writing-mode:vertical-rl}.placeLane{background:rgba(200,239,211,.13);box-shadow:inset 0 0 0 1px rgba(200,239,211,.18)}.comeLane{background:rgba(255,208,154,.14);box-shadow:inset 0 0 0 1px rgba(255,208,154,.2)}.comePair{display:flex;align-items:center;justify-content:center;gap:1px;min-width:0}.stack{display:flex;flex-direction:column;gap:1px;align-items:center;margin-top:2px}.chip{max-width:100%;border-radius:999px;padding:1px 4px;color:#111;font-size:7.2px;font-weight:950;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:1px solid rgba(0,0,0,.5)}.num .chip{width:22px;height:22px;padding:0;display:flex;align-items:center;justify-content:center;font-size:6px;line-height:1}.num .place{width:auto;min-width:27px;height:18px;border-radius:4px}.place{background:#c8efd3}.come{background:var(--orange)}.odds{background:var(--blue)}.pass{background:#ffb5b5}
 .puck{position:absolute;top:1px;right:1px;width:16px;height:16px;border-radius:50%;background:#fff;color:#111;border:1px solid #111;font-size:5.5px;font-weight:950;display:flex;align-items:center;justify-content:center}
 .area{border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative;min-width:0}.areaName{font-family:Georgia,serif;font-weight:900;letter-spacing:.08em;font-size:15px}.area .stack{position:absolute;right:5px;flex-direction:row;max-width:58%;overflow:hidden;margin:0}.comeArea .areaName{font-size:24px;color:var(--gold);text-shadow:0 1px 2px #000}.field{font-family:Georgia,serif;font-size:13px;flex-direction:column;line-height:1.15}.fieldNumbers{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:9px;letter-spacing:.16em}.dontpass{font-size:10px;color:rgba(255,190,190,.9);letter-spacing:.08em}.passline{border-width:2px;justify-content:space-between;padding:0 6px}.passline .stack{position:static;max-width:65%;justify-content:flex-end}
-.history{height:30px;background:var(--panel);border:1px solid #274239;border-radius:10px;padding:3px 6px;display:grid;grid-template-columns:auto 1fr;gap:6px;align-items:center;overflow:hidden}.historyLabel{font-size:7px;font-weight:900;color:var(--muted);letter-spacing:.08em}.historyRolls{display:flex;justify-content:flex-end;gap:3px;min-width:0;overflow:hidden}.historyRoll{flex:0 0 21px;height:21px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#e9f2ee;color:#10201b;font-size:9px;font-weight:950;border:1px solid rgba(255,255,255,.35)}.historyRoll.seven{background:#d94e57;color:#fff}.historyEmpty{font-size:8px;color:var(--muted)}
+.history{height:52px;background:var(--panel);border:1px solid #274239;border-radius:10px;padding:3px 6px;display:grid;grid-template-rows:1fr 1fr;gap:2px;overflow:hidden}.historyRow{display:grid;grid-template-columns:48px 1fr;gap:5px;align-items:center;min-height:0}.historyRow+.historyRow{border-top:1px solid rgba(255,255,255,.1);padding-top:2px}.historyLabel{font-size:7px;font-weight:900;color:var(--muted);letter-spacing:.06em}.historyRolls,.seasonResults{display:flex;justify-content:flex-end;gap:3px;min-width:0;overflow:hidden}.historyRoll{flex:0 0 20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#e9f2ee;color:#10201b;font-size:8.5px;font-weight:950;border:1px solid rgba(255,255,255,.35)}.historyRoll.seven{background:#d94e57;color:#fff}.seasonResult{flex:0 0 auto;border-radius:999px;padding:2px 5px;background:#21372f;color:#fff;font-size:7.5px;font-weight:900;white-space:nowrap}.seasonResult.win{color:var(--win)}.seasonResult.lose{color:var(--lose)}.historyEmpty{font-size:8px;color:var(--muted)}
 .bottom{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}.btn{border:0;border-radius:12px;height:48px;font-weight:950}.rollbtn{background:var(--gold);color:#17130a;font-size:17px}.secondary{background:#1a302a;color:#fff;border:1px solid #304941;font-size:11px}.danger{background:#412426;color:#fff;border:1px solid #60363a;font-size:11px}
 .flash{position:fixed;left:50%;top:44%;transform:translate(-50%,-50%) scale(.92);z-index:20;width:min(88vw,360px);background:rgba(7,18,15,.96);border:1px solid #3e5b51;border-radius:18px;padding:14px 16px;text-align:center;opacity:0;pointer-events:none;transition:.18s}.flash.show{opacity:1;transform:translate(-50%,-50%) scale(1)}.flash .big{font-size:23px;font-weight:950}.flash .money{font-size:18px;font-weight:950;margin-top:4px}.flash .sub{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.35}.flash.win .money{color:var(--win)}.flash.lose .money{color:var(--lose)}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:50;display:none;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.modalCard{width:min(92vw,390px);background:#10201b;border:1px solid #385349;border-radius:18px;padding:16px}.modal h2{margin:0 0 8px;font-size:18px}.modal p{font-size:12px;color:#d8e0dd;line-height:1.55;margin:7px 0}.modal .start{width:100%;height:44px;border:0;border-radius:12px;background:var(--gold);font-weight:950;margin-top:8px}
-@media(max-height:720px){.app{padding-top:max(10px,env(safe-area-inset-top));gap:4px}.rollzone{grid-template-columns:1fr 82px;min-height:64px}.tableDice{top:15px;padding:7px 9px}.die{width:44px;height:44px;font-size:37px}.table{grid-template-rows:76px 30px 40px 22px 29px}.num{grid-template-rows:31px 1fr}.nval{font-size:18px}.comeArea .areaName{font-size:18px}.history{height:25px;padding:2px 5px}.historyRoll{flex-basis:18px;height:18px;font-size:8px}.btn{height:42px}.coach{min-height:32px;padding:4px 7px}.result .headline{font-size:14px}.metric{padding:4px 5px}.metric b{font-size:12px}}
+@media(max-height:720px){.app{padding-top:max(10px,env(safe-area-inset-top));gap:4px}.rollzone{grid-template-columns:1fr 82px;min-height:64px}.tableDice{top:10px;padding:6px 8px}.die{width:42px;height:42px;font-size:35px}.table{grid-template-rows:72px 28px 38px 21px 28px}.num{grid-template-rows:29px 1fr}.nval{font-size:17px}.comeArea .areaName{font-size:17px}.history{height:44px;padding:2px 5px}.historyRoll{flex-basis:17px;height:17px;font-size:7.5px}.seasonResult{font-size:6.8px;padding:1px 4px}.btn{height:42px}.coach{min-height:32px;padding:4px 7px}.result .headline{font-size:14px}.metric{padding:4px 5px}.metric b{font-size:12px}}
 </style>
 </head>
 <body>
 <div class="app">
   <div class="topbar">
-    <div><div class="title">CRAPS HOT ROLL TRAINER</div><div class="subtitle">ROLLだけ押す → 戦略は自動実行 / iPhone互換版 v11</div></div>
+    <div><div class="title">CRAPS HOT ROLL TRAINER</div><div class="subtitle">ROLLだけ押す → 戦略は自動実行 / iPhone互換版 v12</div></div>
     <button type="button" class="help" id="helpBtn" onclick="showHelp(); return false;">?</button>
   </div>
 
@@ -74,7 +74,7 @@ button{font:inherit}
 
     <div class="table-shell">
       <div class="table">
-        <div class="dicebox tableDice" id="diceBox"><div class="die" id="die1">⚀</div><div class="die" id="die2">⚀</div></div>
+        <div class="dicebox tableDice" id="diceBox"><div class="die" id="die1" role="img" aria-label="Die 1"></div><div class="die" id="die2" role="img" aria-label="Die 1"></div></div>
         <div class="numbers" id="numbers"></div>
         <div class="area comeArea"><div class="areaName">COME</div><div class="stack" id="comeBarStack"></div></div>
         <div class="area field"><div class="fieldNumbers">2　3　4　9　10　11　12</div><b>FIELD</b></div>
@@ -82,7 +82,7 @@ button{font:inherit}
         <div class="area passline"><div class="areaName">PASS LINE</div><div class="stack" id="passStack"></div></div>
       </div>
     </div>
-    <div class="history"><div class="historyLabel">HISTORY</div><div class="historyRolls" id="historyRolls"><span class="historyEmpty">まだロールがありません</span></div></div>
+    <div class="history"><div class="historyRow"><div class="historyLabel">ROLLS</div><div class="historyRolls" id="historyRolls"><span class="historyEmpty">まだロールがありません</span></div></div><div class="historyRow"><div class="historyLabel">SEASONS</div><div class="seasonResults" id="seasonResults"><span class="historyEmpty">セブンアウト後に収支を表示</span></div></div></div>
   </div>
 
   <div class="bottom">
@@ -100,8 +100,8 @@ const BASE=1000, PLACE=1200, START=200000, POINTS=[4,5,6,8,9,10], STATE_KEY='cra
 const FACE=['','⚀','⚁','⚂','⚃','⚄','⚅'];
 let state, rolling=false, flashTimer;
 
-function freshState(){return {bankroll:START,shooterStart:START,shooterRolls:0,point:null,pass:null,comeBar:null,comes:[],places:{6:0,8:0},retiredPlaces:{6:false,8:false},stage:'NORMAL',nextComeBase:1000,_placeHit:false,last:null,history:[]}}
-function init(){try{state=JSON.parse(localStorage.getItem(STATE_KEY))||freshState()}catch(_){state=freshState()}if(!Array.isArray(state.history))state.history=[];if(!state.point&&!state.pass)beginPass([]);render();}
+function freshState(){return {bankroll:START,shooterStart:START,shooterRolls:0,point:null,pass:null,comeBar:null,comes:[],places:{6:0,8:0},retiredPlaces:{6:false,8:false},stage:'NORMAL',nextComeBase:1000,_placeHit:false,last:null,history:[],seasons:[]}}
+function init(){try{state=JSON.parse(localStorage.getItem(STATE_KEY))||freshState()}catch(_){state=freshState()}if(!Array.isArray(state.history))state.history=[];if(!Array.isArray(state.seasons))state.seasons=[];if(!state.point&&!state.pass)beginPass([]);render();}
 function saveState(){try{localStorage.setItem(STATE_KEY,JSON.stringify(state))}catch(_){}}
 function resetAll(){localStorage.removeItem(STATE_KEY);state=freshState();beginPass([]);render();}
 function debit(x){state.bankroll-=x} function credit(x){state.bankroll+=x}
@@ -109,6 +109,7 @@ function tablePrincipal(){let x=0;if(state.pass)x+=state.pass.base+(state.pass.o
 function equity(){return state.bankroll+tablePrincipal()}
 function fmt(n){return (n>0?'+':'')+Math.round(n).toLocaleString('en-US')}
 function dice(){return 1+Math.floor(Math.random()*6)}
+function drawDie(id,value){const active={1:[4],2:[0,8],3:[0,4,8],4:[0,2,6,8],5:[0,2,4,6,8],6:[0,2,3,5,6,8]}[value];const el=document.getElementById(id);el.setAttribute('aria-label',`Die ${value}`);el.innerHTML=Array.from({length:9},(_,i)=>`<span class="pip${active.includes(i)?' on':''}"></span>`).join('')}
 function payoutOdds(n,a){if(n===4||n===10)return a*2;if(n===5||n===9)return a*1.5;if(n===6||n===8)return a*1.2;return 0}
 function maxOdds(n,b){if(n===4||n===10)return b*3;if(n===5||n===9)return b*4;if(n===6||n===8)return b*5;return 0}
 function halfMaxOdds(n,b){return maxOdds(n,b)/2}
@@ -140,14 +141,14 @@ function settleComeOnComeOut(sum,wins,losses,events){
 function executeRoll(d1,d2){const events=[];let wins=[], losses=[];beginPass(events);const sum=d1+d2;state.shooterRolls++;setStage();
   if(!state.point){
     settleComeOnComeOut(sum,wins,losses,events);
-    if(sum===7||sum===11){credit(BASE*2);wins.push({name:`Pass Line ${sum}`,profit:BASE,detail:`Come-out ${sum}: even money`});state.pass=null}
+    if(sum===7||sum===11){credit(BASE*2);wins.push({name:`WINNER ${sum}`,profit:BASE,detail:`Come-out ${sum}: Pass wins / シューター継続`});state.pass=null}
     else if(sum===2||sum===3||sum===12){losses.push({name:`Pass Line ${sum}`,profit:-BASE,detail:`Come-out craps`});state.pass=null}
     else if(POINTS.includes(sum)){state.point=sum;state.pass.number=sum;const odds=oddsForStage(sum,BASE);debit(odds);state.pass.odds=odds;events.push(`Point ${sum} → Pass Odds ${odds.toLocaleString()}`);place68(events)}
   }else{
     let travelledCome=null;
     // Resolve Come bar first; on a 7 it wins before existing contracts lose.
     if(state.comeBar){const b=state.comeBar.base;if(sum===7||sum===11){credit(b*2);wins.push({name:`Come Bar ${sum}`,profit:b,detail:`Come wins before existing contracts resolve`});state.comeBar=null;if(state.stage==='MONSTER')state.nextComeBase=Math.min(3000,state.nextComeBase+500)}else if(sum===2||sum===3||sum===12){losses.push({name:`Come Bar ${sum}`,profit:-b,detail:`Come craps`});state.comeBar=null;state.nextComeBase=BASE}else if(POINTS.includes(sum)){const down=downOnePlace(events,(sum===6||sum===8)?sum:null);const odds=oddsForStage(sum,b);debit(odds);travelledCome={number:sum,base:b,odds};events.push(`Come → ${sum}, Odds ${odds.toLocaleString()}${down?` / Place ${down} down`:''}`);state.comeBar=null}}
-    if(sum===7){let exposed=0;if(state.pass)exposed+=state.pass.base+(state.pass.odds||0);for(const c of state.comes)exposed+=c.base+(c.odds||0);exposed+=(state.places[6]||0)+(state.places[8]||0);if(exposed>0)losses.push({name:'SEVEN OUT',profit:-exposed,detail:`Pass/Come/Place exposed ${exposed.toLocaleString()}`});state.pass=null;state.comes=[];state.places={6:0,8:0};state.point=null;const shooterEnd=state.bankroll-state.shooterStart;events.push(`Shooter ends ${fmt(shooterEnd)}`);state.shooterStart=state.bankroll;state.shooterRolls=0;state._placeHit=false;state.retiredPlaces={6:false,8:false};state.stage='NORMAL';state.nextComeBase=BASE;
+    if(sum===7){let exposed=0;if(state.pass)exposed+=state.pass.base+(state.pass.odds||0);for(const c of state.comes)exposed+=c.base+(c.odds||0);exposed+=(state.places[6]||0)+(state.places[8]||0);if(exposed>0)losses.push({name:'SEVEN OUT',profit:-exposed,detail:`シーズン終了 / Pass・Come・Place損失 ${exposed.toLocaleString()}`});state.pass=null;state.comes=[];state.places={6:0,8:0};state.point=null;const finishedRolls=state.shooterRolls,shooterEnd=state.bankroll-state.shooterStart;state.seasons=[...(state.seasons||[]),{no:(state.seasons||[]).length+1,pl:shooterEnd,rolls:finishedRolls}].slice(-8);events.push(`Shooter ends ${fmt(shooterEnd)}`);state.shooterStart=state.bankroll;state.shooterRolls=0;state._placeHit=false;state.retiredPlaces={6:false,8:false};state.stage='NORMAL';state.nextComeBase=BASE;
     } else {
       const remain=[];for(const c of state.comes){if(c.number===sum){const profit=c.base+payoutOdds(c.number,c.odds);credit(c.base+c.odds+profit);wins.push({name:`Come ${c.number} HIT`,profit,detail:`Base +${c.base.toLocaleString()} / Odds profit +${Math.round(payoutOdds(c.number,c.odds)).toLocaleString()}`});if(state.stage==='MONSTER')state.nextComeBase=Math.min(3000,state.nextComeBase+500)}else remain.push(c)}state.comes=travelledCome?[...remain,travelledCome]:remain;
       if(sum===6&&state.places[6]){const win=state.places[6]*7/6;credit(win);state._placeHit=true;wins.push({name:'Place 6 HIT',profit:win,detail:`${state.places[6].toLocaleString()} × 7/6`})}
@@ -161,7 +162,7 @@ function executeRoll(d1,d2){const events=[];let wins=[], losses=[];beginPass(eve
   if(wins.length||losses.length){const mixed=wins.length&&losses.length;showFlash(net>=0?'win':'lose',mixed?'MIXED RESULT':(wins.length?wins:losses).map(x=>x.name).join(' + '),`純利益 ${fmt(net)} PHP`,[...wins,...losses].map(x=>x.detail).join(' / '))}
 }
 
-function rollAnimated(){if(rolling)return;rolling=true;document.getElementById('diceBox').classList.add('rolling');let ticks=0;const iv=setInterval(()=>{document.getElementById('die1').textContent=FACE[dice()];document.getElementById('die2').textContent=FACE[dice()];ticks++;if(ticks>=9){clearInterval(iv);const d1=dice(),d2=dice();document.getElementById('die1').textContent=FACE[d1];document.getElementById('die2').textContent=FACE[d2];document.getElementById('diceBox').classList.remove('rolling');rolling=false;executeRoll(d1,d2)}},55)}
+function rollAnimated(){if(rolling)return;rolling=true;document.getElementById('diceBox').classList.add('rolling');let ticks=0;const iv=setInterval(()=>{drawDie('die1',dice());drawDie('die2',dice());ticks++;if(ticks>=9){clearInterval(iv);const d1=dice(),d2=dice();drawDie('die1',d1);drawDie('die2',d2);document.getElementById('diceBox').classList.remove('rolling');rolling=false;executeRoll(d1,d2)}},55)}
 
 function coachText(){if(!state.point)return 'Come-out：Pass 1,000。4/5/6/8/9/10でPoint成立。';if(state.stage==='NORMAL'&&!state._placeHit)return `守備：Pass + 1x Odds、Place 6/8。まずPlaceヒットを待つ。`;if(state.stage==='NORMAL')return 'Placeがヒット → Come 1,000を展開。Comeが数字へ行けばPlaceを1本Down。';if(state.stage==='WARM')return 'WARM：最大3契約。Comeへ置換し、Oddsは1/2 Max。18 rolls＋黒字でHOT。';if(state.stage==='HOT')return 'HOT：既存Pass/ComeのOddsをMax。ベースはまだ1,000で守る。';if(state.stage==='VERY HOT')return 'VERY HOT：最大4契約、次のComeは1,500〜。利益を使って攻める。';return `MONSTER：Come HITごと次ベット+500（現在 ${state.nextComeBase.toLocaleString()} / 上限3,000）、Odds Max。`}
 function render(){
@@ -171,13 +172,14 @@ function render(){
   const nums=document.getElementById('numbers');nums.innerHTML='';for(const n of POINTS){const box=document.createElement('div');box.className='num'+(state.point===n?' pointon':'');let placeChip='',comeChips='';if(state.places[n])placeChip=`<span class="chip place">PL ${state.places[n]/1000}k</span>`;for(const c of state.comes.filter(x=>x.number===n)){comeChips+=`<span class="comePair"><span class="chip come">C<br>${c.base/1000}k</span>${c.odds?`<span class="chip odds">O<br>${c.odds/1000}k</span>`:''}</span>`}box.innerHTML=`<div class="numberHead">${state.point===n?'<div class="puck">ON</div>':''}<div class="nval">${n}</div><div class="tag">BOX NUMBER</div></div><div class="betLanes"><div class="betLane placeLane"><span class="laneName">PLACE</span>${placeChip}</div><div class="betLane comeLane"><span class="laneName">COME</span>${comeChips}</div></div>`;nums.appendChild(box)}
   document.getElementById('comeBarStack').innerHTML=state.comeBar?`<span class="chip come">C ${state.comeBar.base/1000}k</span>`:'';document.getElementById('passStack').innerHTML=state.pass?`<span class="comePair"><span class="chip pass">PASS ${state.pass.base/1000}k</span>${state.pass.odds?`<span class="chip odds">ODDS ${state.pass.odds/1000}k</span>`:''}</span>`:'';
   document.getElementById('historyRolls').innerHTML=state.history.length?state.history.map(r=>`<span class="historyRoll${r.sum===7?' seven':''}" title="${r.d1} + ${r.d2}">${r.sum}</span>`).join(''):'<span class="historyEmpty">まだロールがありません</span>';
+  document.getElementById('seasonResults').innerHTML=state.seasons.length?state.seasons.map(s=>`<span class="seasonResult ${s.pl>=0?'win':'lose'}" title="${s.rolls} rolls">S${s.no} ${fmt(s.pl)}</span>`).join(''):'<span class="historyEmpty">セブンアウト後に収支を表示</span>';
   saveState();
 }
 
 function newShooter(){state.bankroll+=tablePrincipal();state.point=null;state.pass=null;state.comeBar=null;state.comes=[];state.places={6:0,8:0};state.retiredPlaces={6:false,8:false};state.shooterStart=state.bankroll;state.shooterRolls=0;state._placeHit=false;state.stage='NORMAL';state.nextComeBase=BASE;state.last=null;beginPass([]);render();}
 function showHelp(){document.getElementById('modal').classList.add('show');}
 function hideHelp(){document.getElementById('modal').classList.remove('show');}
-init();
+init();drawDie('die1',state.last?.d1||1);drawDie('die2',state.last?.d2||1);
 </script>
 <script>
 if ('serviceWorker' in navigator) {
@@ -189,7 +191,7 @@ if ('serviceWorker' in navigator) {
   });
   window.addEventListener('load', async () => {
     try {
-      const registration = await navigator.serviceWorker.register('./service-worker.js?v=11', {updateViaCache:'none'});
+      const registration = await navigator.serviceWorker.register('./service-worker.js?v=12', {updateViaCache:'none'});
       await registration.update();
     } catch (_) {}
   });
